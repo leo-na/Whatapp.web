@@ -84,7 +84,7 @@ body{
   filter:none;
 }
 
-/* Sidebar top */
+
 .sidebar__top{
   padding:12px;
   display:flex;
@@ -100,7 +100,7 @@ body{
 }
 .sidebar__actions{display:flex;gap:6px}
 
-/* Search */
+
 .sidebar__search{
   padding:10px 12px;
   border-bottom:1px solid var(--line);
@@ -116,7 +116,7 @@ body{
 }
 .sidebar__search input::placeholder{color:var(--muted)}
 
-/* Chats list */
+
 .chats{overflow:auto;display:flex;flex-direction:column}
 .chat{
   display:flex;
@@ -163,7 +163,6 @@ body{
   display:inline-block;
 }
 
-/* Chat header */
 .chatview__top{
   padding:12px 14px;
   display:flex;
@@ -185,7 +184,7 @@ body{
 .chatview__status{color:var(--muted);font-size:12px}
 .chatview__actions{display:flex;gap:6px}
 
-/* Messages */
+
 .messages{
   flex:1;
   padding:18px 18px 8px;
@@ -230,7 +229,7 @@ body{
   color:rgba(233,237,239,.65);
 }
 
-/* Composer */
+
 .composer{
   display:flex;
   gap:8px;
@@ -250,7 +249,7 @@ body{
 }
 .composer__input::placeholder{color:var(--muted)}
 
-/* Empty state */
+
 .empty{
   position:absolute;
   inset:64px 0 62px 0;

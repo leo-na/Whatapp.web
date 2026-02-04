@@ -1,4 +1,4 @@
-// ---------- Helpers ----------
+
 const pad2 = (n) => String(n).padStart(2, "0");
 const formatTime = (d) => `${pad2(d.getHours())}:${pad2(d.getMinutes())}`;
 const nowISO = () => new Date().toISOString();
@@ -19,7 +19,7 @@ function saveState(state) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
 }
 
-// ---------- Initial Data ----------
+
 const defaultState = {
   activeChatId: "maman",
   chats: [
@@ -55,11 +55,11 @@ const defaultState = {
   ]
 };
 
-// Merge saved state with defaults (lightweight)
+
 const saved = loadState();
 let state = saved && saved.chats ? saved : structuredClone(defaultState);
 
-// ---------- DOM ----------
+
 const chatListEl = document.getElementById("chatList");
 const searchInputEl = document.getElementById("searchInput");
 const messagesEl = document.getElementById("messages");
@@ -73,16 +73,18 @@ const btnReset = document.getElementById("btnReset");
 const btnNewChat = document.getElementById("btnNewChat");
 const btnClearChat = document.getElementById("btnClearChat");
 
-// ---------- Rendering ----------
+
 function getActiveChat() {
   return state.chats.find((c) => c.id === state.activeChatId) || null;
 }
-
 function renderChatList(filterText = "") {
   const ft = filterText.trim().toLowerCase();
   chatListEl.innerHTML = "";
 
-  const chats = state.chats.filter((c) => c.name.toLowerCase().includes(ft));
+  // ✅ On retire le chat actif de la liste
+  const chats = state.chats.filter(
+    (c) => c.id !== state.activeChatId && c.name.toLowerCase().includes(ft)
+  );
 
   for (const chat of chats) {
     const lastMsg = chat.messages[chat.messages.length - 1];
@@ -94,7 +96,7 @@ function renderChatList(filterText = "") {
     a.setAttribute("role", "button");
     a.setAttribute("tabindex", "0");
     a.dataset.chatId = chat.id;
-    a.setAttribute("aria-selected", String(chat.id === state.activeChatId));
+    a.setAttribute("aria-selected", "false"); // logique puisque l'actif n'est plus listé
 
     a.innerHTML = `
       <div class="chat__avatar" aria-hidden="true"></div>
@@ -125,21 +127,22 @@ function renderChatList(filterText = "") {
   }
 }
 
+
 function renderMessages() {
   const chat = getActiveChat();
 
-  // empty state
+
   if (!chat) {
     emptyStateEl.style.display = "flex";
     return;
   }
   emptyStateEl.style.display = chat.messages.length ? "none" : "flex";
 
-  // header
+
   chatTitleEl.textContent = chat.name;
   chatStatusEl.textContent = chat.status;
 
-  // keep the day pill, clear others
+
   [...messagesEl.querySelectorAll(".msg")].forEach((n) => n.remove());
 
   for (const m of chat.messages) {
@@ -171,11 +174,11 @@ function updateSendButton() {
   sendBtnEl.disabled = !hasText || !getActiveChat();
 }
 
-// ---------- Actions ----------
+
 function setActiveChat(chatId) {
   state.activeChatId = chatId;
 
-  // mark as read
+
   const chat = getActiveChat();
   if (chat) {
     chat.unread = 0;
