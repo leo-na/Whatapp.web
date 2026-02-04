@@ -208,7 +208,6 @@ function sendMessage() {
   renderChatList(searchInputEl.value);
   renderMessages();
 
-  // Fake auto-reply (demo)
   queueAutoReply(chat.id, text);
 }
 
@@ -314,7 +313,7 @@ function createNewChat() {
   updateSendButton();
 }
 
-// ---------- Events ----------
+
 searchInputEl.addEventListener("input", (e) => {
   renderChatList(e.target.value);
 });
