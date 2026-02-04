@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chat Web UI (Interactive)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <header class="sidebar__top">
+        <div class="avatar" aria-hidden="true"></div>
+        <div class="sidebar__actions">
+          <button class="icon-btn" id="btnNewChat" title="Nouveau chat" aria-label="Nouveau chat">＋</button>
+          <button class="icon-btn" id="btnReset" title="Réinitialiser" aria-label="Réinitialiser">⟲</button>
+        </div>
+      </header>
+
+      <div class="sidebar__search">
+        <input id="searchInput" type="search" placeholder="Rechercher une discussion" />
+      </div>
+
+      <nav class="chats" id="chatList" aria-label="Conversations">
+        <!-- injecté par JS -->
+      </nav>
+    </aside>
+
+    <!-- Chat -->
+    <main class="chatview">
+      <header class="chatview__top">
+        <div class="chatview__left">
+          <div class="chatview__avatar" aria-hidden="true"></div>
+          <div class="chatview__title">
+            <div class="chatview__name" id="chatTitle">Sélectionne une discussion</div>
+            <div class="chatview__status" id="chatStatus">—</div>
+          </div>
+        </div>
+        <div class="chatview__actions">
+          <button class="icon-btn" id="btnClearChat" title="Vider le chat" aria-label="Vider le chat">🧹</button>
+        </div>
+      </header>
+
+      <section class="messages" id="messages" aria-label="Messages">
+        <div class="day" id="dayPill">Aujourd’hui</div>
+        <!-- injecté par JS -->
+      </section>
+
+      <div class="empty" id="emptyState">
+        <div>
+          <strong>Astuce :</strong> clique à gauche sur une conversation, puis envoie un message.<br />
+          Les messages sont sauvegardés dans ton navigateur (LocalStorage).
+        </div>
+      </div>
+
+      <footer class="composer">
+        <button class="icon-btn" aria-label="Emoji" title="Emoji (demo)">😊</button>
+        <button class="icon-btn" aria-label="Joindre" title="Pièce jointe (demo)">📎</button>
+        <input class="composer__input" id="composerInput" type="text" placeholder="Écrire un message" />
+        <button class="send-btn" id="sendBtn" aria-label="Envoyer" disabled>➤</button>
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
