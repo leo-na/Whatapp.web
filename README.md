@@ -1,74 +1,82 @@
-Chat Web UI – Interface de messagerie
-Description du projet
+# Chat Web UI — Interface de messagerie web (Vanilla JS)
 
-Chat Web UI est une interface de messagerie web inspirée des applications de discussion modernes.
-Le projet a été conçu pour reproduire les principaux comportements d’un système de chat tout en restant volontairement simple et léger.
+Chat Web UI est une **interface de messagerie web** inspirée des applications de chat modernes.  
+Le projet a été conçu pour reproduire les **comportements essentiels d’un système de discussion**, tout en restant volontairement simple, léger et sans framework JavaScript.
 
-L’objectif principal est de travailler la gestion de l’état côté client, l’organisation de l’interface et la qualité de l’expérience utilisateur, sans utiliser de framework JavaScript.
+L’objectif principal est de travailler la **gestion de l’état côté client**, la **structuration du code** et la **qualité de l’expérience utilisateur**, en utilisant uniquement des technologies web natives.
 
-Les données sont stockées localement dans le navigateur à l’aide du LocalStorage, ce qui permet de conserver les conversations entre les sessions.
+---
 
-Objectifs
+##  Objectifs du projet
 
-Concevoir une interface de messagerie claire et fonctionnelle
+- Concevoir une interface de messagerie claire et intuitive
+- Comprendre la logique d’un système de chat côté front-end
+- Gérer plusieurs conversations de manière dynamique
+- Mettre en place une persistance des données côté navigateur
+- Travailler un layout responsive proche d’une application réelle
+- Approfondir JavaScript **sans framework**
 
-Gérer plusieurs conversations de manière dynamique
+---
 
-Mettre en place un système de messages entrants et sortants
+##  Structure et logique
 
-Travailler un layout responsive proche d’une application réelle
+Le projet repose sur une architecture front simple mais organisée :
 
-Comprendre et structurer la logique d’un système de chat côté front-end
+- Séparation claire entre **UI**, **logique métier** et **données**
+- Gestion centralisée de l’état des conversations
+- Manipulation du DOM optimisée
+- Code lisible et facilement extensible
 
-Fonctionnalités
-Gestion des conversations
+Les données sont stockées localement dans le navigateur grâce au **LocalStorage**, permettant de conserver les conversations entre les sessions.
 
-Affichage d’une liste de discussions avec aperçu du dernier message
+---
 
-Sélection d’une conversation active
+##  Fonctionnalités
 
-Création de nouvelles discussions
+### Gestion des conversations
+- Affichage d’une liste de discussions avec aperçu du dernier message
+- Sélection d’une conversation active
+- Création de nouvelles discussions
+- Réinitialisation ou suppression du contenu d’une conversation
+- Indication des messages non lus
 
-Réinitialisation ou suppression du contenu d’une conversation
+### Messages
+- Envoi de messages avec horodatage
+- Différenciation visuelle entre messages entrants et sortants
+- Défilement automatique vers le dernier message
+- Simulation de réponses automatiques pour reproduire un échange réel
 
-Messages
+### État & persistance
+- Sauvegarde automatique des conversations via LocalStorage
+- Restauration complète de l’état au rechargement de la page
+- Conservation de la conversation active
 
-Envoi de messages avec horodatage
+---
 
-Différenciation visuelle entre messages entrants et sortants
+##  Interface & expérience utilisateur
 
-Défilement automatique vers le dernier message
+- Layout en deux colonnes (liste des discussions / conversation active)
+- Interface responsive adaptée aux écrans plus petits
+- États visuels clairs pour la conversation sélectionnée
+- Bouton d’envoi désactivé lorsque le champ de saisie est vide
+- Expérience fluide proche d’une application de messagerie réelle
 
-Simulation de réponses automatiques pour reproduire un échange réel
+---
 
-État et persistance
+##  Technologies utilisées
 
-Sauvegarde automatique des conversations via LocalStorage
+- **HTML5**
+- **CSS3** (Flexbox, responsive design)
+- **JavaScript Vanilla**
+- **LocalStorage**
 
-Restauration de l’état de l’application au rechargement de la page
+ Aucun framework JavaScript n’a été utilisé volontairement.
 
-Gestion des messages non lus
+---
 
-Interface et expérience utilisateur
+##  Lancer le projet
 
-Layout en deux colonnes (liste des discussions / conversation active)
+Le projet fonctionne entièrement côté client.
 
-Interface responsive adaptée aux écrans plus petits
-
-Bouton d’envoi désactivé lorsque le champ de saisie est vide
-
-États visuels clairs pour la conversation sélectionnée
-
-Technologies utilisées
-
-HTML5
-
-CSS3 (Flexbox, responsive design)
-
-JavaScript vanilla
-
-LocalStorage
-
-À propos
-
-Ce projet a été réalisé dans un objectif d’apprentissage et de démonstration des bases du développement front-end et de la conception d’interfaces interactives, avec une attention particulière portée à la lisibilité du code et à la cohérence de l’expérience utilisateur.
+```bash
+# Ouvrir simplement index.html
